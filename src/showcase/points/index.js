@@ -10,4 +10,5 @@ const shaderProgram = initShaders(gl, vert, frag)
 const vertexBuffer = setupBuffers(gl)
 
 gl.clearColor(1.0, 1.0, 1.0, 1.0)
+
 draw(gl, shaderProgram, vertexBuffer)
