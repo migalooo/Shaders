@@ -1,6 +1,8 @@
 import * as dat from 'dat.gui'
+
 import frag from './frag.glsl'
 import vert from './vert.glsl'
+
 import {createGLContext, initShaders, setupBuffers, draw} from '../../tools/init'
 
 const gl = createGLContext() 
