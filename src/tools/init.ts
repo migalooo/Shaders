@@ -30,8 +30,6 @@ function initShaders(gl, vert, frag) {
 
   gl.useProgram(shaderProgram);
 
-  shaderProgram.vertexPositionAttribute = gl.getAttribLocation(shaderProgram, "aVertexPosition");
-
   return shaderProgram
 }
 
@@ -69,8 +67,16 @@ function setupBuffers(gl, vertices) {
 function draw(gl, shaderProgram, vertexBuffer) {
   gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
   gl.clear(gl.COLOR_BUFFER_BIT);
-  gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
-  gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
+
+  let vertexPositionAttribute = gl.getAttribLocation(shaderProgram, "aVertexPosition");
+  gl.vertexAttribPointer(vertexPositionAttribute, vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
+  gl.enableVertexAttribArray(vertexPositionAttribute);
+
+
+  let u_time=gl.getUniformLocation(shaderProgram,'u_time');
+  let time = new Date().getSeconds();
+  gl.uniform1f(u_time, time);
+
   gl.drawArrays(gl.TRIANGLE_STRIP, 0, vertexBuffer.numberOfItems);
 }
 
