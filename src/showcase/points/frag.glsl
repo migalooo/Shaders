@@ -11,10 +11,9 @@ float plot(vec2 st, float pct){
 }
 
 void main() {
-  const float PI = 3.1415926;
   vec2 st = gl_FragCoord.xy/u_resolution;
 
-  float y = PI*(0.1*st.x);
+  float y = st.x;
 
   vec3 color = vec3(y);
 
