@@ -1,6 +1,6 @@
 import * as dat from 'dat.gui'
 
-import frag from './frag.glsl'
+import frag from './fragColor.glsl'
 import vert from './vert.glsl'
 
 import {createGLContext, initShaders, setupBuffers} from '../../tools/init'
@@ -26,7 +26,7 @@ let u_time=gl.getUniformLocation(shaderProgram,'u_time');
 
 
 function draw() {
-  let time = new Date().getMilliseconds()/1000 - 0.5;
+  let time = new Date().getMilliseconds()/500;
   gl.uniform1f(u_time, time);
   gl.drawArrays(gl.TRIANGLE_STRIP, 0, vertexBuffer.numberOfItems);
   requestAnimationFrame(draw)
