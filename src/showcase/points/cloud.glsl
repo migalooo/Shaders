@@ -1,5 +1,6 @@
 // Author @patriciogv - 2015
 // http://patriciogonzalezvivo.com
+// 云扰动Shader
 
 #ifdef GL_ES
 precision mediump float;

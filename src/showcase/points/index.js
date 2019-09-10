@@ -1,6 +1,6 @@
 import * as dat from 'dat.gui'
 
-import frag from './cloud.glsl'
+import frag from './flame.glsl'
 import vert from './vert.glsl'
 
 import {createGLContext, initShaders, setupBuffers} from '../../tools/init'
@@ -22,13 +22,16 @@ gl.enableVertexAttribArray(vertexPositionAttribute);
 let u_resolution=gl.getUniformLocation(shaderProgram, 'u_resolution');
 gl.uniform2fv(u_resolution, [gl.viewportWidth, gl.viewportHeight]);
 
+let u_mouse=gl.getUniformLocation(shaderProgram, 'u_mouse');
+gl.uniform2fv(u_mouse, [0.5, 0.5]);
+
 let u_time=gl.getUniformLocation(shaderProgram,'u_time');
 
 
+let startTime = Date.now()
 function draw() {
-  let time = Math.sin(new Date().getMilliseconds()/500);
-  // console.log(time)
-  gl.uniform1f(u_time, time);
+  let time = Date.now() - startTime
+  gl.uniform1f(u_time, time/1000);
   gl.drawArrays(gl.TRIANGLE_STRIP, 0, vertexBuffer.numberOfItems);
   requestAnimationFrame(draw)
 }

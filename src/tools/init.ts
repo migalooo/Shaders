@@ -64,25 +64,28 @@ function setupBuffers(gl, vertices) {
   return vertexBuffer
 }
 
-function draw(gl, shaderProgram, vertexBuffer) {
-  gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
-  gl.clear(gl.COLOR_BUFFER_BIT);
-
-  let vertexPositionAttribute = gl.getAttribLocation(shaderProgram, "aVertexPosition");
-  gl.vertexAttribPointer(vertexPositionAttribute, vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
-  gl.enableVertexAttribArray(vertexPositionAttribute);
-
-
-  let u_time=gl.getUniformLocation(shaderProgram,'u_time');
-  let time = new Date().getSeconds();
-  gl.uniform1f(u_time, time);
-
-  gl.drawArrays(gl.TRIANGLE_STRIP, 0, vertexBuffer.numberOfItems);
-}
+// function draw(gl, shaderProgram, vertexBuffer) {
+//   gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
+//   gl.clear(gl.COLOR_BUFFER_BIT);
+//
+//   let vertexPositionAttribute = gl.getAttribLocation(shaderProgram, "aVertexPosition");
+//   gl.vertexAttribPointer(vertexPositionAttribute, vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
+//   gl.enableVertexAttribArray(vertexPositionAttribute);
+//
+//
+//   let u_time=gl.getUniformLocation(shaderProgram,'u_time');
+//
+//   // parameters.time = Date.now() - parameters.startTime;
+//   let time = new Date().getSeconds();
+//   // parameters.time / 1000
+//   gl.uniform1f(u_time, time);
+//
+//   gl.drawArrays(gl.TRIANGLE_STRIP, 0, vertexBuffer.numberOfItems);
+// }
 
 export {
   createGLContext,
   initShaders,
   setupBuffers,
-  draw
+  // draw
 }
