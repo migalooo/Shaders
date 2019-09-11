@@ -192,8 +192,8 @@ void main(  ) {
 	vec3 fire = 1.5*vec3(f, fff, fff*fff);
 	//
 	// smoke
-	float smokeNoise = 0.5+snoise(0.4*position+timing*vec3(1.0,1.0,0.2))/2.0;
-	vec3 smoke = vec3(0.3*pow(xfuel,3.0)*pow(ypart,2.0)*(smokeNoise+0.4*(1.0-noise)));
+	// float smokeNoise = 0.5+snoise(0.4*position+timing*vec3(1.0,1.0,0.2))/2.0;
+	// vec3 smoke = vec3(0.3*pow(xfuel,3.0)*pow(ypart,2.0)*(smokeNoise+0.4*(1.0-noise)));
 	//
 	// sparks
 	float sparkGridSize = 30.0;

@@ -1,6 +1,6 @@
 import * as dat from 'dat.gui'
 
-import frag from './flame.glsl'
+import frag from './ink.glsl'
 import vert from './vert.glsl'
 
 import {createGLContext, initShaders, setupBuffers} from '../../tools/init'
